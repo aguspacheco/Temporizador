@@ -1,0 +1,19 @@
+.circulo {
+  height: 150px;
+  width: 150px;
+  background-color: #3317178f;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+#inicio {
+  background-color: #383636cc;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  justify-content: center;
+}
