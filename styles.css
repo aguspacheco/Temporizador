@@ -1,7 +1,21 @@
-.circulo {
+body {
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.contenedor {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 50vh;
+}
+
+.reloj {
   height: 150px;
   width: 150px;
   background-color: #3317178f;
+  color: #fff;
   border-radius: 100%;
   display: flex;
   justify-content: center;
@@ -9,11 +23,7 @@
   font-size: 2rem;
 }
 
-#inicio {
-  background-color: #383636cc;
-  color: #fff;
-  width: 60px;
-  height: 60px;
-  text-align: center;
-  justify-content: center;
+.slide-fwd-center {
+  -webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
