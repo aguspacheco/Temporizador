@@ -20,6 +20,10 @@ function actualizarTiempo() {
     (segundos < 10 ? "0" + segundos : segundos);
 }
 
+horasInput.addEventListener("input", actualizarTiempo);
+minutosInput.addEventListener("input", actualizarTiempo);
+segundosInput.addEventListener("input", actualizarTiempo);
+
 function iniciarTiempo() {
   actualizarTiempo();
 
@@ -43,8 +47,15 @@ function iniciarTiempo() {
   }, 1000);
 }
 
-horasInput.addEventListener("input", actualizarTiempo);
-minutosInput.addEventListener("input", actualizarTiempo);
-segundosInput.addEventListener("input", actualizarTiempo);
+function cancelarTiempo() {
+  clearInterval(intervalo);
+  horasInput.value = 0;
+  minutosInput.value = 0;
+  segundosInput.value = 0;
+
+  actualizarTiempo();
+}
+
+document.getElementById("cancelar").addEventListener("click", cancelarTiempo);
 
 document.getElementById("inicio").addEventListener("click", iniciarTiempo);
