@@ -6,9 +6,9 @@ var tiempo;
 var intervalo;
 
 function actualizarTiempo() {
-  var horas = horasInput.value;
-  var minutos = minutosInput.value;
-  var segundos = segundosInput.value;
+  var horas = parseInt(horasInput.value, 10) || 0;
+  var minutos = parseInt(minutosInput.value, 10) || 0;
+  var segundos = parseInt(segundosInput.value, 10) || 0;
 
   tiempo = horas * 3600 + minutos * 60 + segundos;
 
