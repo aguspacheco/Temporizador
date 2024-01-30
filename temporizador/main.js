@@ -27,8 +27,19 @@ segundosInput.addEventListener("input", actualizarTiempo);
 function iniciarTiempo() {
   actualizarTiempo();
 
+  if (tiempo <= 0) {
+    alert("Por favor ingrese al menos un valor");
+    return;
+  }
+
   intervalo = setInterval(function () {
     tiempo--;
+
+    if (tiempo < 0) {
+      clearInterval(intervalo);
+      alert("El tiempo llego a cero!!!");
+      return;
+    }
 
     var horas = Math.floor(tiempo / 3600);
     var minutos = Math.floor((tiempo % 3600) / 60);
@@ -43,6 +54,7 @@ function iniciarTiempo() {
 
     if (tiempo <= 0) {
       clearInterval(intervalo);
+      alert("⚠ El tiempo llego a cero!!!");
     }
   }, 1000);
 }
