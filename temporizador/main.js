@@ -26,6 +26,7 @@ segundosInput.addEventListener("input", actualizarTiempo);
 
 function iniciarTiempo() {
   actualizarTiempo();
+  
 
   if (tiempo <= 0) {
     alert("Por favor ingrese al menos un valor");
