@@ -21,3 +21,11 @@ body {
   align-items: center;
   font-size: 2rem;
 }
+
+#inicio {
+  background-color: yellowgreen;
+}
+
+#cancelar {
+  background-color: red;
+}

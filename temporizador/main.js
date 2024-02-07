@@ -1,36 +1,35 @@
-var horasInput = document.getElementById("horas");
-var minutosInput = document.getElementById("minutos");
-var segundosInput = document.getElementById("segundos");
-var elementoTiempo = document.getElementById("reloj");
-var tiempo;
-var intervalo;
+let horasInput = document.getElementById("horas");
+let minutosInput = document.getElementById("minutos");
+let segundosInput = document.getElementById("segundos");
+let elementoTiempo = document.getElementById("reloj");
+let tiempo;
+let intervalo;
 
 function actualizarTiempo() {
-  var horas = parseInt(horasInput.value, 10) || 0;
-  var minutos = parseInt(minutosInput.value, 10) || 0;
-  var segundos = parseInt(segundosInput.value, 10) || 0;
+  const horas = parseInt(horasInput.value, 10) || 0;
+  const minutos = parseInt(minutosInput.value, 10) || 0;
+  const segundos = parseInt(segundosInput.value, 10) || 0;
 
   tiempo = horas * 3600 + minutos * 60 + segundos;
 
-  elementoTiempo.textContent =
-    (horas < 10 ? "0" + horas : horas) +
-    ":" +
-    (minutos < 10 ? "0" + minutos : minutos) +
-    ":" +
-    (segundos < 10 ? "0" + segundos : segundos);
-}
+  const formattedHoras = horas < 10 ? `0${horas}` : horas;
+  const formattedMinutos = minutos < 10 ? `0${minutos}` : minutos;
+  const formattedSegundos = segundos < 10 ? `0${segundos}` : segundos;
 
-horasInput.addEventListener("input", actualizarTiempo);
-minutosInput.addEventListener("input", actualizarTiempo);
-segundosInput.addEventListener("input", actualizarTiempo);
+  elementoTiempo.textContent = `${formattedHoras}:${formattedMinutos}:${formattedSegundos}`;
+}
 
 function iniciarTiempo() {
   actualizarTiempo();
-  
 
-  if (tiempo <= 0) {
+  if (
+    tiempo <= 0 ||
+    horasInput.value === "" ||
+    minutosInput.value === "" ||
+    segundosInput.value === ""
+  ) {
     alert("Por favor ingrese al menos un valor");
-    return;
+    return null;
   }
 
   intervalo = setInterval(function () {
@@ -38,13 +37,13 @@ function iniciarTiempo() {
 
     if (tiempo < 0) {
       clearInterval(intervalo);
-      alert("El tiempo llego a cero!!!");
+      alert("El tiempo llegó a cero!!!");
       return;
     }
 
-    var horas = Math.floor(tiempo / 3600);
-    var minutos = Math.floor((tiempo % 3600) / 60);
-    var segundos = tiempo % 60;
+    let horas = Math.floor(tiempo / 3600);
+    let minutos = Math.floor((tiempo % 3600) / 60);
+    let segundos = tiempo % 60;
 
     elementoTiempo.textContent =
       (horas < 10 ? "0" + horas : horas) +
@@ -55,20 +54,19 @@ function iniciarTiempo() {
 
     if (tiempo <= 0) {
       clearInterval(intervalo);
-      alert("⚠ El tiempo llego a cero!!!");
+      alert("⚠ El tiempo llegó a cero!!!");
     }
   }, 1000);
 }
 
 function cancelarTiempo() {
   clearInterval(intervalo);
-  horasInput.value = 0;
-  minutosInput.value = 0;
-  segundosInput.value = 0;
+  horasInput.value = "";
+  minutosInput.value = "";
+  segundosInput.value = "";
 
   actualizarTiempo();
 }
 
 document.getElementById("cancelar").addEventListener("click", cancelarTiempo);
-
 document.getElementById("inicio").addEventListener("click", iniciarTiempo);
