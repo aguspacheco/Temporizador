@@ -1,25 +1,35 @@
 body {
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 100vh;
   background: radial-gradient(circle at top left, #7678ed, #89bd9e);
 }
 
 .contenedor {
-  justify-content: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  height: 50vh;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
 .reloj {
-  height: 150px;
-  width: 150px;
-  border-radius: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  font-size: 2rem;
+  font-size: 20px;
+}
+
+.botones {
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  justify-content: space-around;
+  align-items: flex-end;
 }
 
 #inicio {
