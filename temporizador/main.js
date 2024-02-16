@@ -24,11 +24,9 @@ function iniciarTiempo() {
 
   if (
     tiempo <= 0 ||
-    horasInput.value === "" ||
-    minutosInput.value === "" ||
-    segundosInput.value === ""
+    (horasInput.value === "0" && minutosInput.value === "0" && segundosInput.value === "0")
   ) {
-    alert("Por favor ingrese al menos un valor");
+    alert("⚠Por favor ingrese al menos un valor⚠");
     return null;
   }
 
