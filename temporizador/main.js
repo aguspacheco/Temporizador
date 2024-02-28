@@ -26,8 +26,8 @@ function iniciarTiempo() {
     tiempo <= 0 ||
     (horasInput.value === "0" && minutosInput.value === "0" && segundosInput.value === "0")
   ) {
-    alert("⚠Por favor ingrese al menos un valor⚠");
-    return null;
+    alert("Por favor ingrese al menos un valor diferente de 0");
+    return;
   }
 
   intervalo = setInterval(function () {
